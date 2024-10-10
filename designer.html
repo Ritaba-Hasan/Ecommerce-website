@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Designer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/92d70a2fd8.js" crossorigin="anonymous"></script>
+
+    <style>
+        /* navbaaar */
+        @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+
+        @font-face {
+            font-family: AstroSpace;
+            src: url(/fonts/AstroSpace.ttf);
+        }
+
+        nav {
+            position: fixed;
+            z-index: 10;
+            left: 0;
+            right: 0;
+            top: 0;
+            padding: 0 5%;
+            height: 80px;
+            background-color: black;
+            font-family: "Montserrat", sans-serif;
+
+        }
+
+        nav .container {
+            float: left;
+            width: 40%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            color: #fff;
+            font-family: "Montserrat", sans-serif;
+
+        }
+
+        nav .links {
+            float: right;
+            padding: 0;
+            margin: 0;
+            width: 60%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            font-family: "Montserrat", sans-serif;
+
+        }
+
+        nav .links li {
+            list-style: none;
+        }
+
+        nav .links a {
+            padding: 1em;
+            font-size: 16px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        nav .links a:hover {
+            border-bottom: 2px solid white;
+        }
+
+        nav .links a.contact:hover {
+            background-color: white;
+            color: black;
+            border-bottom: none;
+            border-radius: 50px;
+            height: 40px;
+            padding: 10px 22px;
+            font-size: 13px;
+
+        }
+
+        #nav-toggle {
+            position: absolute;
+            top: -100px;
+        }
+
+        nav .icon-burger {
+            display: none;
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        nav .icon-burger .line {
+            width: 30px;
+            height: 5px;
+            background-color: #fff;
+            margin: 5px;
+            border-radius: 3px;
+            transition: all .3s ease-in-out;
+        }
+
+        @media screen and (max-width: 768px) {
+
+            nav .links {
+                float: none;
+                position: fixed;
+                z-index: 9;
+                left: 0;
+                right: 0;
+                top: 100px;
+                bottom: 100%;
+                width: auto;
+                height: auto;
+                flex-direction: column;
+                justify-content: space-evenly;
+                background-color: rgba(0, 0, 0, .8);
+                overflow: hidden;
+                box-sizing: border-box;
+                transition: all .5s ease-in-out;
+            }
+
+            nav .links a {
+                font-size: 17px;
+            }
+
+            nav .links a:hover {
+                border-bottom: none;
+            }
+
+            nav :checked~.links {
+                bottom: 0;
+            }
+
+            nav .icon-burger {
+                display: block;
+            }
+
+            nav :checked~.icon-burger .line:nth-child(1) {
+                transform: translateY(10px) rotate(225deg);
+            }
+
+            nav :checked~.icon-burger .line:nth-child(3) {
+                transform: translateY(-10px) rotate(-225deg);
+            }
+
+            nav :checked~.icon-burger .line:nth-child(2) {
+                opacity: 0;
+            }
+
+        }
+    </style>
+    <script>
+        $breadcrumb - divider; url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E");
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#brand").click(function () {
+                $("#brandDetail").slideToggle();
+            });
+            $("#Collection").click(function () {
+                $("#CollectionDetail").slideToggle();
+            });
+
+            $("#color").click(function () {
+                $("#colroDetail").slideToggle();
+            });
+            // $("#price").click(function () {
+            //   $("#priceDetail").slideToggle();
+            // });
+            $("#search").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#product div ").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+            $("#Sanasafinaz , #GulAhmed , #Edernrobe , #Maria.B").click("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#product div ").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+            $("#Nikkah , #Engagement , #Barat , #").click("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#product div ").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+            $("#green , #yellow , #black , #pink , #blue").click("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#product div ").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+            $("#4000 , #3,500 , #2,500 ").click("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#product div ").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+
+        });
+
+    </script>
+</head>
+
+<body>
+
+    <nav>
+        <input id="nav-toggle" type="checkbox">
+        <div class="container"> <img src="s-removebg-preview.png" alt="" style="height: 220px; width: 220px;">
+        </div>
+        <ul class="links">
+            <li><a href="designer.html">Designer luxury</a></li>
+            <li><a href="summer.html">Summer</a></li>
+            <li><a href="winter.html">Winter</a></li>
+            <li><a href="wedding.html">Wedding</a></li>
+            <li><a href="westerndresses.html">Western</a></li>
+            <li><a href="contact.html" class="contact">Contact us</a></li>
+            <li><a href="addtocart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+        </ul>
+        <label for="nav-toggle" class="icon-burger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </label>
+    </nav>
+
+
+    <div style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);"
+        aria-label="breadcrumb">
+        <ul class="breadcrumb" style="margin-top: 90px; margin-left: 100px;">
+            <li class="breadcrumb-item"><a href="home.html"><i class="fa fa-home fa-2x" style="color:black ;"></i></a>
+            </li>
+            <li class="breadcrumb-item"><a href="#" class=" btn-active "
+                    style="color: grey; font-size: larger;">Designer luxury</a></li>
+
+        </ul>
+    </div>
+    <div class="text-center mt-5" style="margin-top: -150px;">
+        <h1 style="font-family: 'Times New Roman', Times, serif; margin-top: -50px;">Modern -Style</h1>
+    </div>
+    <div style="text-align: center; width: 500px; margin-left: 425px;">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum tenetur facere ducimus in aliquam
+            exercitationem sint eligendi cupiditate! Facilis, quos ab impedit laboriosam dolorum sunt numquam maxime
+            pariatur inventore ex.
+        </p>
+    </div>
+    <div class="container mt-5">
+        <div class="row gy-3 ">
+            <div class="col-lg-2">
+                <form action="">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text p-3"><i class="fa-solid fa-magnifying-glass"></i></div>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Search" id="search">
+                    </div>
+                </form>
+                <div class="row">
+                    <div class="col-lg-12 col-sm-4 mt-5">
+                        <h4 id="brand">Brands</h4>
+                        <hr>
+                        <form action="" id="brandDetail">
+                            <div class="form-cheak">
+                                <input type="checkbox" class="form-check-input" id="Sanasafinaz" value="Sanasafinaz">
+                                <label class="form-check-label">Sanasafinaz</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="Edernrobe" value="Edernrobe">
+                                <label class="form-check-label">Edernrobe</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="GulAhmed" value="GulAhmed">
+                                <label class="form-check-label">GulAhmed</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="Maria.B" value="Maria.B">
+                                <label class="form-check-label">Maria.B</label>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-12 col-sm-4 mt-5">
+                        <h4 id="Collection">Collection</h4>
+                        <hr>
+                        <form action="" id="CollectionDetail">
+                            <div class="form-cheak">
+                                <input type="checkbox" class="form-check-input" id="Nikkah" value="Nikkah">
+                                <label class="form-check-label">Nikkah</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="Engagement" value="Engagement">
+                                <label class="form-check-label">Engagement</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="Barat" value="Barat">
+                                <label class="form-check-label">Barat</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="Mehndi" value="Mehndi">
+                                <label class="form-check-label">Mehndi</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="Valima" value="Valima">
+                                <label class="form-check-label">Valima</label>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="col-lg-12 col-sm-4 mt-5">
+                        <h4 id="color">Color</h4>
+                        <hr>
+                        <form action="" class="d-flex" id="color">
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input bg-black" id="black" value="black">
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input bg-success" id="green" value="green">
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input bg-danger" id="yellow" value="yellow">
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input bg-info" id="blue" value="blue">
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input bg-warning" id="pink" value="pink">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-10">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="card">
+                            <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/0000_DSC06435.jpg?v=1654253960&width=450"
+                                alt="" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-tittle">PKR 16,875</h5>
+                                <p style="text-decoration-line: line-through;">PKR 22,500</p>
+
+                                <p class="card-text">upto 50% Off <br>
+                                    Ready To Ship
+                                </p>
+                                <p class="card-text">Rang e Haya -> Rang </p>
+
+                                <button class="btn" style="background-color:grey;  color:black;">Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 ">
+                        <div class="card">
+                            <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/49_ac80da54-32c3-4134-9fc0-61846543db8e.jpg?v=1609329513&width=450"
+                                alt="" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-tittle">PKR 13,170</h5>
+                                <p style="text-decoration-line: line-through;">PKR 27,500</p>
+                                <p class="card-text">Upto 30% Off <br>
+                                    Ready To Ship
+                                </p>
+                                <p class="card-text">Aineee Faisal -> Lime </p>
+
+                                <button class="btn " style="background-color:grey; color:black;">Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="card">
+                            <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/7_bd9c2c81-2748-4a7f-b369-9d76071ebdd9.jpg?v=1618217803&width=450"
+                                alt="" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-tittle">PKR 13,950</h5>
+                                <p style="text-decoration-line: line-through;">PKR 22,500</p>
+
+                                <p class="card-text">Upto To 40% Off <br>
+                                    Ready To Ship
+                                </p>
+                                <p class="card-text">Rabia zuhar-> Neeli</p>
+
+                                <button class="btn" style="background-color:grey; color:black;">Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="card">
+                            <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/30_e2de4564-fbc9-41b4-97fb-3bbe6d5889f3.jpg?v=1643096828&width=450"
+                                alt="" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-tittle">PKR 23,600</h5>
+                                <p style="text-decoration-line: line-through;">PKR 29,500</p>
+                                <p class="card-text">Upto 20% Off <br>
+                                    Ready To Ship
+                                </p>
+                                <p class="card-text">Ali -> Fajar </p>
+
+                                <button class="btn" style="background-color:grey; color:black;">Add to cart</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/6_91aa661e-3476-4ac3-b7fa-4407e8bb5358.jpg?v=1600763762&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 28,875</h5>
+                        <p style="text-decoration-line: line-through;">PKR 38,500</p>
+
+                        <p class="card-text">Upto 25% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Waqas Shah -> Zara</p>
+
+                        <button class="btn" style="background-color:grey; color:black;">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 ">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/29_7b8579f0-2595-4252-a86a-9833f9e33018.jpg?v=1604146964&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 21,500</h5>
+                        <p style="text-decoration-line: line-through;">PKR 28,500</p>
+
+                        <p class="card-text">Upto 25% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Zonia Anwar -> Pani Puri</p>
+
+                        <button class="btn" style="background-color:grey; color:black;">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/656546_3f46aaa2-51b1-43b8-ad62-db0d1268fa6b.jpg?v=1639054341&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 21,375</h5>
+                        <p style="text-decoration-line: line-through;">PKR 28,500</p>
+
+                        <p class="card-text">Upto 25% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Waqas Shah -> Naranj</p>
+
+                        <button class="btn" style="background-color:grey; color:black;">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/11_3d755f5c-9358-424b-8e7e-76ae2cc3ce40.jpg?v=1622894864&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 13,650</h5>
+                        <p style="text-decoration-line: line-through;">PKR 19,500</p>
+
+                        <p class="card-text">Upto 30% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Ali -> Guddi</p>
+
+                        <button class="btn" style="background-color:grey; color:black;">Add to cart</button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/5465474.jpg?v=1614408341&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 17,700</h5>
+                        <p style="text-decoration-line: line-through;">PKR 24,500</p>
+
+                        <p class="card-text">upto 50% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Ali -> Duckling</p>
+
+                        <button class="btn" style="background-color:grey; color:black;">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 ">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/1342435687.jpg?v=1605010550&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 23,600</h5>
+                        <p style="text-decoration-line: line-through;">PKR 29,500</p>
+                        <p class="card-text">Upto 30% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text"> Waqas Shah -> Soan Papdpi</p>
+
+                        <button class="btn" style="background-color:grey; color:black;">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/867867_1.jpg?v=1602072529&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 30,950</h5>
+                        <p style="text-decoration-line: line-through;">PKR 40,000</p>
+
+                        <p class="card-text">Upto To 25% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Zonia Anwar -> Shrine</p>
+
+                        <button class="btn" style="background-color:grey; color:black;">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/MANTRARESIZE5laamofficial_106686508_282634562977502_8238546012496187466_n_1_3ff56998-99cc-4a4b-bf9d-a0b5bde607f2.jpg?v=1639059084&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 11,600</h5>
+                        <p style="text-decoration-line: line-through;">PKR 18,000</p>
+                        <p class="card-text">Upto 35% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Aroosh -> Samar </p>
+
+                        <button class="btn" style="background-color:grey; color:black;">Add to cart</button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/14_aa821d59-60b0-4165-bec7-329167bc70c9.jpg?v=1639059363&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 28,355</h5>
+                        <p style="text-decoration-line: line-through;">PKR 37,500</p>
+
+                        <p class="card-text">Upto 25% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Ali -> Gul </p>
+
+                        <button class="btn" style="background-color:grey; color:black;">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 ">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/47_73b6781a-efec-42d2-aa6a-23d32864daa3.jpg?v=1604146996&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 23,500</h5>
+                        <p style="text-decoration-line: line-through;">PKR 29,500</p>
+
+                        <p class="card-text">Upto 20% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Ali -> Achari</p>
+
+                        <button class="btn" style="background-color:grey; color:black;">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/51_8c9645f3-03c3-4cea-b5d4-4f3cec92b1d8.jpg?v=1600762000&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 25,725</h5>
+                        <p style="text-decoration-line: line-through;">PKR 34,500</p>
+
+                        <p class="card-text">Upto 25% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Waqas Shah -> Kala Gulab</p>
+
+                        <button class="btn" style="background-color:grey; color:black;">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/yuuytuti.jpg?v=1609507822&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 30,000</h5>
+                        <p style="text-decoration-line: line-through;">PKR 40,000</p>
+
+                        <p class="card-text">Upto 25% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Zonia Anwar -> Radha</p>
+
+                        <button class="btn " style="background-color:grey; color:black;">Add to cart</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center mt-5">
+        <h1 style="font-family: 'Times New Roman', Times, serif;" ;>Saree-Style</h1>
+    </div>
+    <div style="text-align: center; width: 500px; margin-left: 425px;">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum tenetur facere ducimus in aliquam
+            exercitationem sint eligendi cupiditate! Facilis, quos ab impedit laboriosam dolorum sunt numquam maxime
+            pariatur inventore ex.
+        </p>
+    </div>
+    <div class="container mt-5">
+        <div class="row gy-3 ">
+            <div class="col-lg-2">
+                <form action="">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text p-3"><i class="fa-solid fa-magnifying-glass"></i></div>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Search" id="search">
+                    </div>
+                </form>
+                <div class="row">
+                    <div class="col-lg-12 col-sm-4 mt-5">
+                        <h4 id="brand">Brands</h4>
+                        <hr>
+                        <form action="" id="brandDetail">
+                            <div class="form-cheak">
+                                <input type="checkbox" class="form-check-input" id="Sanasafinaz" value="Sanasafinaz">
+                                <label class="form-check-label">Sanasafinaz</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="Edernrobe" value="Edernrobe">
+                                <label class="form-check-label">Edernrobe</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="GulAhmed" value="GulAhmed">
+                                <label class="form-check-label">GulAhmed</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="Maria.B" value="Maria.B">
+                                <label class="form-check-label">Maria.B</label>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-12 col-sm-4 mt-5">
+                        <h4 id="Collection">Collection</h4>
+                        <hr>
+                        <form action="" id="CollectionDetail">
+                            <div class="form-cheak">
+                                <input type="checkbox" class="form-check-input" id="Nikkah" value="Nikkah">
+                                <label class="form-check-label">Nikkah</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="Engagement" value="Engagement">
+                                <label class="form-check-label">Engagement</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="Barat" value="Barat">
+                                <label class="form-check-label">Barat</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="Mehndi" value="Mehndi">
+                                <label class="form-check-label">Mehndi</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="Valima" value="Valima">
+                                <label class="form-check-label">Valima</label>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="col-lg-12 col-sm-4 mt-5">
+                        <h4 id="color">Color</h4>
+                        <hr>
+                        <form action="" class="d-flex" id="color">
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input bg-black" id="black" value="black">
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input bg-success" id="green" value="green">
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input bg-danger" id="yellow" value="yellow">
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input bg-info" id="blue" value="blue">
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input bg-warning" id="pink" value="pink">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-10">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="card">
+                            <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/8_c7b73c3f-17fa-4a63-8070-0e3b2641f2d2.jpg?v=1662027956&width=450"
+                                alt="" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-tittle">PKR 16,875</h5>
+                                <p style="text-decoration-line: line-through;">PKR 22,500</p>
+
+                                <p class="card-text">upto 50% Off <br>
+                                    Ready To Ship
+                                </p>
+                                <p class="card-text">Rang e Haya -> Rang </p>
+
+                                <button class="btn" style="background-color:grey; color:black;">Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 ">
+                        <div class="card">
+                            <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/2_6d77f1a6-3315-4c3b-86c9-280cfa6431a8.jpg?v=1646918133&width=450"
+                                alt="" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-tittle">PKR 13,170</h5>
+                                <p style="text-decoration-line: line-through;">PKR 27,500</p>
+                                <p class="card-text">Upto 30% Off <br>
+                                    Ready To Ship
+                                </p>
+                                <p class="card-text">Aineee Faisal -> Lime </p>
+
+                                <button class="btn" style="background-color:grey; color:black;">Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="card">
+                            <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/3_2f593f4d-31c2-47d3-94bf-c7c0c366c978.jpg?v=1619243046&width=450"
+                                alt="" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-tittle">PKR 13,950</h5>
+                                <p style="text-decoration-line: line-through;">PKR 22,500</p>
+
+                                <p class="card-text">Upto To 40% Off <br>
+                                    Ready To Ship
+                                </p>
+                                <p class="card-text">Rabia zuhar-> Neeli</p>
+
+                                <button class="btn" style="background-color:grey; color:black;">Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="card">
+                            <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/4_b43ddc4a-30b2-4a49-b28e-f7317326caf0.jpg?v=1662198307&width=450"
+                                alt="" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-tittle">PKR 23,600</h5>
+                                <p style="text-decoration-line: line-through;">PKR 29,500</p>
+                                <p class="card-text">Upto 20% Off <br>
+                                    Ready To Ship
+                                </p>
+                                <p class="card-text">Ali -> Fajar </p>
+
+                                <button class="btn" style="background-color:grey; color:black;">Add to cart</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/33_ae7885a6-dd2c-4ed3-b761-8dfbb529f4a5.jpg?v=1643896132&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 28,875</h5>
+                        <p style="text-decoration-line: line-through;">PKR 38,500</p>
+
+                        <p class="card-text">Upto 25% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Waqas Shah -> Zara</p>
+
+                        <button class="btn" style="background-color:grey; color:black;">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 ">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/21_fb237d86-08cc-4369-9097-a3629c6a19fc.jpg?v=1632423605&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 21,500</h5>
+                        <p style="text-decoration-line: line-through;">PKR 28,500</p>
+
+                        <p class="card-text">Upto 25% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Zonia Anwar -> Pani Puri</p>
+
+                        <button class="btn" style="background-color:grey; color:black;">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/7_790766fe-8948-41e3-b995-f3a5628b8c93.jpg?v=1611148956&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 21,375</h5>
+                        <p style="text-decoration-line: line-through;">PKR 28,500</p>
+
+                        <p class="card-text">Upto 25% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Waqas Shah -> Naranj shah</p>
+
+                        <button class="btn" style="background-color:grey; color:black;">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/2_3_31e1dbe0-b851-47a2-838b-34c77c806037.jpg?v=1667389090&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 13,650</h5>
+                        <p style="text-decoration-line: line-through;">PKR 19,500</p>
+
+                        <p class="card-text">Upto 30% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Ali -> Guddi ali</p>
+
+                        <button class="btn" style="background-color:grey; color:black;">Add to cart</button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/13431434.jpg?v=1609242088&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 17,700</h5>
+                        <p style="text-decoration-line: line-through;">PKR 24,500</p>
+
+                        <p class="card-text">upto 50% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Ali -> Duckling</p>
+
+                        <button class="btn" style="background-color:grey; color:black;">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 ">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/9_7aef0168-b02b-4045-91c1-3b933835e832.jpg?v=1662021878&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 23,600</h5>
+                        <p style="text-decoration-line: line-through;">PKR 29,500</p>
+                        <p class="card-text">Upto 30% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text"> Waqas Shah -> Soan Papdpi</p>
+
+                        <button class="btn" style="background-color:grey; color:black;">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/10_e4ab0ba8-c69a-42fc-853b-f967e2ba4e2a.jpg?v=1636702178&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 30,950</h5>
+                        <p style="text-decoration-line: line-through;">PKR 40,000</p>
+
+                        <p class="card-text">Upto To 25% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Zonia Anwar -> Shrine</p>
+
+                        <button class="btn" style="background-color:grey; color:black;">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/10_2bfb9f09-b134-4f2e-bec5-5e32a0905301.jpg?v=1649225720&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 11,600</h5>
+                        <p style="text-decoration-line: line-through;">PKR 18,000</p>
+                        <p class="card-text">Upto 35% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Aroosh -> Samar </p>
+
+                        <button class="btn" style="background-color:grey; color:black;">Add to cart</button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/5_72e41fe8-a76d-4dab-9ac9-cd6741fba276.jpg?v=1660999892&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 28,355</h5>
+                        <p style="text-decoration-line: line-through;">PKR 37,500</p>
+
+                        <p class="card-text">Upto 25% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Ali -> Gul </p>
+
+                        <button class="btn" style="background-color:grey; color:black;">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 ">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/3_609c8558-1618-48c1-9d38-7c3399fc2bce.jpg?v=1669104234&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 23,500</h5>
+                        <p style="text-decoration-line: line-through;">PKR 29,500</p>
+
+                        <p class="card-text">Upto 20% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Ali -> Achari</p>
+                        <button class="btn" style="background-color:grey; color:black;">Add to cart</button>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/0020_2.jpg?v=1656147367&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 25,725</h5>
+                        <p style="text-decoration-line: line-through;">PKR 34,500</p>
+
+                        <p class="card-text">Upto 25% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Waqas Shah -> Kala Gulab</p>
+
+                        <button class="btn" style="background-color:grey; color:black;">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/8_6de2b18b-88bb-49c0-a6e8-468ab8ddbd9b.jpg?v=1649935247&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 30,000</h5>
+                        <p style="text-decoration-line: line-through;">PKR 40,000</p>
+
+                        <p class="card-text">Upto 25% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Zonia Anwar -> Radha</p>
+
+                        <button class="btn" style="background-color:grey; color:black;">Add to cart</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <footer></footer> -->
+    <div class="container-fluid  " style="margin-top: 100px;">
+
+        <footer class="text-white text-center text-lg-start " style="background:black ;">
+            <!-- Grid container -->
+            <div class="container p-4">
+                <!--Grid row-->
+                <div class="row mt-4">
+                    <!--Grid column-->
+                    <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+                        <h5 class="text-uppercase mb-4">About company</h5>
+
+                        <p>
+                            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+                            voluptatum deleniti atque corrupti.
+                        </p>
+
+                        <p>
+                            Blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas
+                            molestias.
+                        </p>
+
+                        <div class="mt-4">
+                            <!-- Facebook -->
+                            <a type="button" class="btn btn-floating btn-light btn-lg"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <!-- Dribbble -->
+                            <a type="button" class="btn btn-floating btn-light btn-lg"><i
+                                    class="fab fa-dribbble"></i></a>
+                            <!-- Twitter -->
+                            <a type="button" class="btn btn-floating btn-light btn-lg"><i
+                                    class="fab fa-twitter"></i></a>
+                            <!-- Google + -->
+                            <a type="button" class="btn btn-floating btn-light btn-lg"><i
+                                    class="fab fa-google-plus-g"></i></a>
+                            <!-- Linkedin -->
+                        </div>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                        <h5 class="text-uppercase mb-4 pb-1">Search something</h5>
+
+                        <div class="form-outline form-white mb-4">
+                            <input type="text" id="formControlLg" class="form-control form-control-lg" />
+                            <label class="form-label" for="formControlLg">Search</label>
+                        </div>
+
+                        <ul class="fa-ul" style="margin-left: 1.65em;">
+                            <li class="mb-3">
+                                <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">Warsaw, 00-967,
+                                    Poland</span>
+                            </li>
+                            <li class="mb-3">
+                                <span class="fa-li"><i class="fas fa-envelope"></i></span><span
+                                    class="ms-2">contact@example.com</span>
+                            </li>
+                            <li class="mb-3">
+                                <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">+ 48 234 567
+                                    88</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                        <h5 class="text-uppercase mb-4">Opening hours</h5>
+
+                        <table class="table text-center text-white">
+                            <tbody class="fw-normal">
+                                <tr>
+                                    <td>Mon - Thu:</td>
+                                    <td>8am - 9pm</td>
+                                </tr>
+                                <tr>
+                                    <td>Fri - Sat:</td>
+                                    <td>8am - 1am</td>
+                                </tr>
+                                <tr>
+                                    <td>Sunday:</td>
+                                    <td>9am - 10pm</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--Grid column-->
+                </div>
+                <!--Grid row-->
+            </div>
+            <!-- Grid container -->
+
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                <a class="text-white" href="www.stylist.com/">www.stylist.com</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+
+    </div>
+
+
+</body>
+
+</html>

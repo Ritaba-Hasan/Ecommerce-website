@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+    crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/92d70a2fd8.js" crossorigin="anonymous"></script>
+  <style>
+    /* scroollbaar */
+    ::-webkit-scrollbar-track
+  {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.6);
+	background-color: #CCCCCC;
+    border-radius: 10px;
+    height: 300px;
+
+
+  }
+
+  ::-webkit-scrollbar
+  {
+	width: 10px;
+    height: 300px;
+	background-color: #F5F5F5;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb
+  {
+	background-color: #FFF;
+	background-image: -webkit-linear-gradient(90deg,
+	                                          rgba(0, 0, 0, 1) 0%,
+											  rgba(0, 0, 0, 1) 25%,
+											  transparent 100%,
+											  rgba(0, 0, 0, 1) 75%,
+											  transparent)
+   }
+</style>
+  
+<style>
+    /* navbaaar */
+    @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+        
+		@font-face {
+		  font-family: AstroSpace;
+		  src: url(/fonts/AstroSpace.ttf);
+		}
+nav {
+	position: fixed;
+	z-index: 10;
+	left: 0;
+	right: 0;
+	top: 0;
+	padding: 0 5%;
+	height: 80px;
+	background-color:black;
+	font-family: "Montserrat", sans-serif;
+
+}
+nav .container {
+	float: left;
+	width: 40%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	color: #fff;
+	font-family: "Montserrat", sans-serif;
+
+}
+nav .links {
+	float: right;
+	padding: 0;
+	margin: 0;
+	width: 60%;
+	height: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	font-family: "Montserrat", sans-serif;
+
+}
+nav .links li {
+	list-style: none;
+}
+nav .links a {
+	padding: 1em;
+	font-size: 16px;
+	color: #fff;
+	text-decoration: none;
+}
+nav .links a:hover {
+              border-bottom: 2px solid white;
+            }
+nav .links a.contact:hover {
+              background-color: white;
+              color: black;
+              border-bottom: none;
+			  border-radius: 50px;
+              height: 40px;
+              padding: 10px 22px;
+              font-size: 13px;
+
+            }
+#nav-toggle {
+	          position: absolute;
+	          top: -100px;
+}
+nav .icon-burger {
+	display: none;
+	position: absolute;
+	right: 5%;
+	top: 50%;
+	transform: translateY(-50%);
+}
+nav .icon-burger .line {
+	width: 30px;
+	height: 5px;
+	background-color: #fff;
+	margin: 5px;
+	border-radius: 3px;
+	transition: all .3s ease-in-out;
+}
+@media screen and (max-width: 768px) {
+	
+	nav .links {
+		float: none;
+		position: fixed;
+		z-index: 9;
+		left: 0;
+		right: 0;
+		top: 100px;
+		bottom: 100%;
+		width: auto;
+		height: auto;
+		flex-direction: column;
+		justify-content: space-evenly;
+		background-color: rgba(0,0,0,.8);
+		overflow: hidden;
+		box-sizing: border-box;
+		transition: all .5s ease-in-out;
+	}
+	nav .links a {
+		font-size: 17px;
+	}
+	nav .links a:hover {
+                border-bottom: none;
+              }
+	nav :checked ~ .links {
+		bottom: 0;
+	}
+	nav .icon-burger {
+		display: block;
+	}
+	nav :checked ~ .icon-burger .line:nth-child(1) {
+		transform: translateY(10px) rotate(225deg);
+	}
+	nav :checked ~ .icon-burger .line:nth-child(3) {
+		transform: translateY(-10px) rotate(-225deg);
+	}
+	nav :checked ~ .icon-burger .line:nth-child(2) {
+		opacity: 0;
+	}
+	
+}
+
+ </style>
+  <script>
+    $(document).ready(function () {
+        $("#brand").click(function () {
+            $("#brandDetail").slideToggle();
+        });
+        $("#Collection").click(function () {
+            $("#CollectionDetail").slideToggle();
+        });
+       
+        $("#color").click(function () {
+            $("#colroDetail").slideToggle();
+        });
+        $("#price").click(function () {
+            $("#priceDetail").slideToggle();
+        });
+        $("#search").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#product div ").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+        $("#Sanasafinaz , #GulAhmed , #Edernrobe , #Maria.B").click("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#product div ").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+        $("#Nikkah , #Engagement , #Barat , #").click("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#product div ").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+        $("#green , #yellow , #black , #pink , #blue").click("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#product div ").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+        $("#4000 , #3,500 , #2,500 ").click("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#product div ").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+
+    });
+
+</script>
+</head>
+<body>
+    
+    <nav >
+        <input id="nav-toggle" type="checkbox">
+        <div class="container">    <img src="s-removebg-preview.png" alt=""  style="height: 220px; width: 220px;" >
+        </div>
+        <ul class="links">
+            <li><a href="designer.html">Designer luxury</a></li>
+            <li><a href="summer.html">Summer</a></li>
+            <li><a href="winter.html">Winter</a></li>
+            <li><a href="wedding.html">Wedding</a></li>
+            <li><a href="westerndresses.html">Western</a></li>
+            <li><a href="contact.html" class="contact">Contact us</a></li>
+            <li><a href="addtocart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+        </ul>
+        <label for="nav-toggle" class="icon-burger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </label>
+    </nav>
+
+
+      <div
+      style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);"
+      aria-label="breadcrumb">
+      <ul class="breadcrumb" style="margin-top: 30px; margin-left: 90px;">
+        <li class="breadcrumb-item"><a href="home.html" class="active"><i class="fa fa-home fa-2x" style="color:black ;"></i></a>
+        </li>
+        <li class="breadcrumb-item"><a href="wedding.html" class=" btn-active " style="color: black; font-size: larger;">Wedding</a>
+        </li>
+        <!-- <li class="breadcrumb-item"><a href="" class=" btn-active "
+                style="color: black; font-size: larger;">Edenrobe</a></li> -->
+      </ul>
+    </div>
+    <div class="text-center mt-5">
+        <h1 style="font-family: 'Times New Roman', Times, serif;" ;>Wedding Wear Designs </h1>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row gy-3 ">
+            <div class="col-lg-2">
+                <form action="">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text p-3"><i class="fa-solid fa-magnifying-glass"></i></div>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Search" id="search">
+                    </div>
+                </form>
+                <div class="row">
+                    <div class="col-lg-12 col-sm-4 mt-5">
+                        <h4 id="brand">Brands</h4>
+                        <hr>
+                        <form action="" id="brandDetail">
+                            <div class="form-cheak">
+                                <input type="checkbox" class="form-check-input" id="Sanasafinaz" value="Sanasafinaz">
+                                <label class="form-check-label">Sanasafinaz</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="Edernrobe" value="Edernrobe">
+                                <label class="form-check-label">Edernrobe</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="GulAhmed" value="GulAhmed">
+                                <label class="form-check-label">GulAhmed</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="Maria.B" value="Maria.B">
+                                <label class="form-check-label">Maria.B</label>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-12 col-sm-4 mt-5">
+                        <h4 id="Collection">Collection</h4>
+                        <hr>
+                        <form action="" id="CollectionDetail">
+                            <div class="form-cheak">
+                                <input type="checkbox" class="form-check-input" id="Nikkah" value="Nikkah">
+                                <label class="form-check-label">Nikkah</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="Engagement" value="Engagement">
+                                <label class="form-check-label">Engagement</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="Barat" value="Barat">
+                                <label class="form-check-label">Barat</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="Mehndi" value="Mehndi">
+                                <label class="form-check-label">Mehndi</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="Valima" value="Valima">
+                                <label class="form-check-label">Valima</label>
+                            </div>
+                        </form>
+                    </div>
+                   
+                    <div class="col-lg-12 col-sm-4 mt-5">
+                        <h4 id="color">Color</h4>
+                        <hr>
+                        <form action="" class="d-flex" id="color">
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input bg-black" id="black" value="black">
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input bg-success" id="green" value="green">
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input bg-danger" id="yellow" value="yellow">
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input bg-info" id="blue" value="blue">
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input bg-warning" id="pink" value="pink">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-12 col-sm-4 mt-5">
+                        <h4 id="price">Price Detail</h4>
+                        <hr>
+                        <form action="" id="pricedetail">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="4000" value="4000">
+                                <label class="form-check-label">4000</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="3,500" value="3,500">
+                                <label class="form-check-label">3,500</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="2,500" value="2,500">
+                                <label class="form-check-label">2,500</label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12" id="product">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/10_92c28a4b-61be-4c09-be62-f95c8c903dce.jpg?v=1667735530&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 49,500</h5>
+                        <h6 class="card-tittle">Engagement Wear</h6>
+                        <p class="card-text">upto 50% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Kanwal Malik -> Serene</p>
+
+                        <button class="btn" style="background-color: grey; color: black;">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 ">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/67969696_f9a2cca8-5c25-49e6-9bc4-a4edfc5e5fb7.jpg?v=1615028624&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 21,000</h5>
+                        <h6 class="card-tittle">Nikkah Wear</h6>
+
+                        <p class="card-text">Upto 30% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Rang e Haya-> Sitara/White </p>
+
+                        <button class="btn" style="background-color: grey; color: black;">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/13_fa4e238c-683e-427e-8d36-b3e2bf7fb1f5.jpg?v=1639058723&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 42,350</h5>
+                        <h6 class="card-tittle">Engagement Wear</h6>
+
+                        <p class="card-text">Upto To 40% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Kanwal Malik-> Mehermaa</p>
+
+                        <button class="btn" style="background-color: grey; color: black;">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/2_c2a380c8-62cb-4bf5-b705-d0b5c4571b64.jpg?v=1627900369&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 62,600</h5>
+                        <h6 class="card-tittle">Mehndi Wear</h6>
+                        <p class="card-text">Upto 20% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Waqas Shah -> FAKHAR-UN-NISA </p>
+
+                        <button class="btn" style="background-color: grey; color: black;">Add to cart</button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/25_3f05666d-6c79-48e6-821a-e6d8f54790d1.jpg?v=1639052964&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 28,875</h5>
+                        <h6 class="card-tittle">Engagement / Valima Wear</h6>
+
+                        <p class="card-text">Upto 25% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Waqas Shah -> FAKHAR-UN-NISA</p>
+
+                        <button class="btn" style="background-color: grey; color: black;">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 ">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/4676765_162c95b1-ab38-4cce-b370-f8f659a3bd25.jpg?v=1607001508&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 52,500</h5>
+                        <h6 class="card-tittle">Nikkah Wear</h6>
+
+                        <p class="card-text">Upto 25% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Waqas Shah -> Omairah</p>
+
+                        <button class="btn" style="background-color: grey; color: black;">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/78698_48556f05-2d80-4b6f-9616-df8cc5190f30.jpg?v=1610103558&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 76,450</h5>
+                        <h6 class="card-tittle">Barat Wear</h6>
+
+                        <p class="card-text">Upto 25% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Hussain Rehar -> Sitaar</p>
+
+                        <button class="btn" style="background-color: grey; color: black;">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/11_3d755f5c-9358-424b-8e7e-76ae2cc3ce40.jpg?v=1622894864&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 55,440</h5>
+                        <h6 class="card-tittle">Nikkah Wear</h6>
+
+                        <p class="card-text">Upto 30% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Aasme Asma -> Miral</p>
+
+                        <button class="btn" style="background-color: grey; color: black;">Add to cart</button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/6yteytyr.jpg?v=1607065311&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 17,700</h5>
+                        <h6 class="card-tittle">Valima Wear</h6>
+
+                        <p class="card-text">upto 50% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Kanwal Malik -> Duckling</p>
+
+                        <button class="btn" style="background-color: grey; color: black;">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 ">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/25234234_043fca41-545e-4255-873c-acbf36750b3f.jpg?v=1619076430&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 23,600</h5>
+                        <h6 class="card-tittle">Engagement Wear</h6>
+                        <p class="card-text">Upto 30% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Waqas Shah-> Nyla Raja</p>
+
+                        <button class="btn" style="background-color: grey; color: black;">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/867867_1.jpg?v=1602072529&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 30,950</h5>
+                        <h6 class="card-tittle">Nikkah Wear</h6>
+
+                        <p class="card-text">Upto To 25% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Sarwar Jaan -> Mint Magic</p>
+
+                        <button class="btn" style="background-color: grey; color: black;">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/44_79c06ee9-4135-4725-b20c-c1ec77ca7b0b.jpg?v=1625555985&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 11,600</h5>
+                        <h6 class="card-tittle">Mehndi Wear</h6>
+
+                        <p class="card-text">Upto 35% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Zonia Anwar -> NOWO8 </p>
+
+                        <button class="btn" style="background-color: grey; color: black;">Add to cart</button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/14_aa821d59-60b0-4165-bec7-329167bc70c9.jpg?v=1639059363&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 28,355</h5>
+                        <h6 class="card-tittle">Engagement Wear</h6>
+
+                        <p class="card-text">Upto 25% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Ali Xeeshan -> Gul </p>
+
+                        <button class="btn" style="background-color: grey; color: black;">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 ">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/47_73b6781a-efec-42d2-aa6a-23d32864daa3.jpg?v=1604146996&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 23,500</h5>
+                        <h6 class="card-tittle">Barat Wear</h6>
+
+                        <p class="card-text">Upto 20% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Waqas Shah -> Farzi Nikkah</p>
+
+                        <button class="btn" style="background-color: grey; color: black;">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/51_8c9645f3-03c3-4cea-b5d4-4f3cec92b1d8.jpg?v=1600762000&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 25,725</h5>
+                        <h6 class="card-tittle">Engagement / Mehndi Wear</h6>
+
+                        <p class="card-text">Upto 25% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Kanwal Malik -> Hoor</p>
+
+                        <button class="btn" style="background-color: grey; color: black;">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/yuuytuti.jpg?v=1609507822&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 30,000</h5>
+                        <h6 class="card-tittle">Nikkah Wear</h6>
+
+                        <p class="card-text">Upto 25% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Waqas Shah -> Nyla</p>
+
+                        <button class="btn" style="background-color: grey; color: black;">Add to cart</button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/7trytryu56767.jpg?v=1613638063&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 30,000</h5>
+                        <h6 class="card-tittle">Mehndi Wear</h6>
+
+                        <p class="card-text">Upto 25% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Waqas Shah -> Nyla</p>
+
+                        <button class="btn" style="background-color: grey; color: black;">Add to cart</button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/45754754.jpg?v=1604935009&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 30,000</h5>
+                        <h6 class="card-tittle">Barat Wear</h6>
+
+                        <p class="card-text">Upto 25% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Waqas Shah -> Nyla</p>
+
+                        <button class="btn" style="background-color: grey; color: black;">Add to cart</button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/60_324cd32b-9fb8-414b-9a71-58c09e7f61b2.jpg?v=1623065412&width=450"
+                        alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-tittle">PKR 30,000</h5>
+                        <h6 class="card-tittle">Valima Wear</h6>
+
+                        <p class="card-text">Upto 25% Off <br>
+                            Ready To Ship
+                        </p>
+                        <p class="card-text">Waqas Shah -> Nyla</p>
+
+                        <button class="btn" style="background-color: grey; color: black;">Add to cart</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footerr -->
+    <div class="container-fluid  " style="margin-top: 100px;">
+
+        <footer class="text-white text-center text-lg-start " style="background-color:black ;">
+          <!-- Grid container -->
+          <div class="container p-4">
+            <!--Grid row-->
+            <div class="row mt-4">
+              <!--Grid column-->
+              <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+                <h5 class="text-uppercase mb-4">About company</h5>
+      
+                <p>
+                  At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+                  voluptatum deleniti atque corrupti.
+                </p>
+      
+                <p>
+                  Blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas
+                  molestias.
+                </p>
+      
+                <div class="mt-4">
+                  <!-- Facebook -->
+                  <a type="button" class="btn btn-floating btn-light btn-lg"><i class="fab fa-facebook-f"></i></a>
+                  <!-- Dribbble -->
+                  <a type="button" class="btn btn-floating btn-light btn-lg"><i class="fab fa-dribbble"></i></a>
+                  <!-- Twitter -->
+                  <a type="button" class="btn btn-floating btn-light btn-lg"><i class="fab fa-twitter"></i></a>
+                  <!-- Google + -->
+                  <a type="button" class="btn btn-floating btn-light btn-lg"><i class="fab fa-google-plus-g"></i></a>
+                  <!-- Linkedin -->
+                </div>
+              </div>
+              <!--Grid column-->
+      
+              <!--Grid column-->
+              <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase mb-4 pb-1">Search something</h5>
+      
+                <div class="form-outline form-white mb-4">
+                  <input type="text" id="formControlLg" class="form-control form-control-lg" />
+                  <label class="form-label" for="formControlLg">Search</label>
+                </div>
+      
+                <ul class="fa-ul" style="margin-left: 1.65em;">
+                  <li class="mb-3">
+                    <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">Warsaw, 00-967, Poland</span>
+                  </li>
+                  <li class="mb-3">
+                    <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2">contact@example.com</span>
+                  </li>
+                  <li class="mb-3">
+                    <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">+ 48 234 567 88</span>
+                  </li>
+                </ul>
+              </div>
+              <!--Grid column-->
+      
+              <!--Grid column-->
+              <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase mb-4">Opening hours</h5>
+      
+                <table class="table text-center text-white">
+                  <tbody class="fw-normal">
+                    <tr>
+                      <td>Mon - Thu:</td>
+                      <td>8am - 9pm</td>
+                    </tr>
+                    <tr>
+                      <td>Fri - Sat:</td>
+                      <td>8am - 1am</td>
+                    </tr>
+                    <tr>
+                      <td>Sunday:</td>
+                      <td>9am - 10pm</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!--Grid column-->
+            </div>
+            <!--Grid row-->
+          </div>
+          <!-- Grid container -->
+      
+          <!-- Copyright -->
+          <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            <a class="text-white" href="www.stylist.com/">www.bootstrap.com</a>
+          </div>
+          <!-- Copyright -->
+        </footer>
+      
+      </div>
+</body>
+</html>

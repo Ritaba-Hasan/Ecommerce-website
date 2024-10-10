@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winter</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+    crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/92d70a2fd8.js" crossorigin="anonymous"></script>
+  
+<style>
+    /* navbaaar */
+    @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+        
+		@font-face {
+		  font-family: AstroSpace;
+		  src: url(/fonts/AstroSpace.ttf);
+		}
+nav {
+	position: fixed;
+	z-index: 10;
+	left: 0;
+	right: 0;
+	top: 0;
+	padding: 0 5%;
+	height: 80px;
+	background-color:black;
+	font-family: "Montserrat", sans-serif;
+
+}
+nav .container {
+	float: left;
+	width: 40%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	color: #fff;
+	font-family: "Montserrat", sans-serif;
+
+}
+nav .links {
+	float: right;
+	padding: 0;
+	margin: 0;
+	width: 60%;
+	height: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	font-family: "Montserrat", sans-serif;
+
+}
+nav .links li {
+	list-style: none;
+}
+nav .links a {
+	padding: 1em;
+	font-size: 16px;
+	color: #fff;
+	text-decoration: none;
+}
+nav .links a:hover {
+              border-bottom: 2px solid white;
+            }
+nav .links a.contact:hover {
+              background-color: white;
+              color: black;
+              border-bottom: none;
+			  border-radius: 50px;
+              height: 40px;
+              padding: 10px 22px;
+              font-size: 13px;
+
+            }
+#nav-toggle {
+	          position: absolute;
+	          top: -100px;
+}
+nav .icon-burger {
+	display: none;
+	position: absolute;
+	right: 5%;
+	top: 50%;
+	transform: translateY(-50%);
+}
+nav .icon-burger .line {
+	width: 30px;
+	height: 5px;
+	background-color: #fff;
+	margin: 5px;
+	border-radius: 3px;
+	transition: all .3s ease-in-out;
+}
+@media screen and (max-width: 768px) {
+	
+	nav .links {
+		float: none;
+		position: fixed;
+		z-index: 9;
+		left: 0;
+		right: 0;
+		top: 100px;
+		bottom: 100%;
+		width: auto;
+		height: auto;
+		flex-direction: column;
+		justify-content: space-evenly;
+		background-color: rgba(0,0,0,.8);
+		overflow: hidden;
+		box-sizing: border-box;
+		transition: all .5s ease-in-out;
+	}
+	nav .links a {
+		font-size: 17px;
+	}
+	nav .links a:hover {
+                border-bottom: none;
+              }
+	nav :checked ~ .links {
+		bottom: 0;
+	}
+	nav .icon-burger {
+		display: block;
+	}
+	nav :checked ~ .icon-burger .line:nth-child(1) {
+		transform: translateY(10px) rotate(225deg);
+	}
+	nav :checked ~ .icon-burger .line:nth-child(3) {
+		transform: translateY(-10px) rotate(-225deg);
+	}
+	nav :checked ~ .icon-burger .line:nth-child(2) {
+		opacity: 0;
+	}
+	
+}
+
+ </style>
+
+        <script>
+            $breadcrumb - divider; url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E");
+        </script>
+</head>
+<body>
+
+      <nav >
+        <input id="nav-toggle" type="checkbox">
+        <div class="container">    <img src="s-removebg-preview.png" alt=""  style="height: 220px; width: 220px;" >
+        </div>
+        <ul class="links">
+            <li><a href="designer.html">Designer luxury</a></li>
+            <li><a href="summer.html">Summer</a></li>
+            <li><a href="winter.html">Winter</a></li>
+            <li><a href="wedding.html">Wedding</a></li>
+            <li><a href="westerndresses.html">Western</a></li>
+            <li><a href="contact.html" class="contact">Contact us</a></li>
+            <li><a href="addtocart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+        </ul>
+        <label for="nav-toggle" class="icon-burger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </label>
+    </nav>
+
+      <br>
+      <br>
+      <br>
+      <br>
+      <div style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);"
+      aria-label="breadcrumb">
+      <ul class="breadcrumb" style="margin-top: 10px; margin-left: 100px;">
+          <li class="breadcrumb-item"><a href="home.html"><i class="fa fa-home fa-2x" style="color:black ;"></i></a>
+          </li>
+          <li class="breadcrumb-item"><a href="#" class=" btn-active "
+                  style="color: grey; font-size: larger;">Winter Wear</a></li>
+      
+      </ul>
+      </div>
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-lg-2" style="margin-top: 70px;">
+                <form action="">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text p-3"><i class="fa-solid fa-magnifying-glass"></i></div>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Search" id="search">
+                    </div>
+                </form>
+                <div class="row">
+                    <div class="col-lg-12 col-sm-4 mt-5">
+                        <h4 id="brand">Brands</h4>
+                        <hr>
+                        <form action="" id="brandDetail">
+                            <div class="form-cheak">
+                                <input type="checkbox" class="form-check-input" id="Sanasafinaz" value="Sanasafinaz">
+                                <label class="form-check-label">Sanasafinaz</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="Edernrobe" value="Edernrobe">
+                                <label class="form-check-label">Edernrobe</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="GulAhmed" value="GulAhmed">
+                                <label class="form-check-label">GulAhmed</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="Maria.B" value="Maria.B">
+                                <label class="form-check-label">Maria.B</label>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-12 col-sm-4 mt-5">
+                        <h4 id="size">Size</h4>
+                        <hr>
+                        <form action="" id="sizeDetail">
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="large" value="large">
+                                <label class="form-check-label">large</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="Medium" value="Medium">
+                                <label class="form-check-label">Medium</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="Small" value="Small">
+                                <label class="form-check-label">Small</label>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-12 col-sm-4 mt-5">
+                        <h4 id="color">Color</h4>
+                        <hr>
+                        <form action="" class="d-flex" id="color">
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input bg-black" id="black" value="black">
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" style="background-color: burlywood;" id="brown" value="brown">
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input bg-danger" id="red" value="red">
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input bg-primary" id="blue" value="blue">
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" style="background-color: pink;" id="pink" value="pink">
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" style="background-color: purple;" id="purple" value="purple">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-12 col-sm-4 mt-5">
+                        <h4 id="price">Price Detail</h4>
+                        <hr>
+                        <form action="" id="pricedetail">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="4000" value="4000">
+                                <label class="form-check-label">4000</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="3,500" value="3,500">
+                                <label class="form-check-label">3,500</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="2,500" value="2,500">
+                                <label class="form-check-label">2,500</label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-10" id="product">
+                <h1 style="text-align: center; font-family: 'Times New Roman', Times, serif;">Winter Wear</h1>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBnommme9TZtAvrArV_rgP0wk9shTSi24sC_qQ-saXU8Yghv1rPe6zg3FZMk_70xPoOB8&usqp=CAU" alt="">
+                            <div class="card-body">
+                                <h6>PKR 3,500</h6>
+                                <p>Sanasafinaz</p>
+                                <p>Medium</p>
+                                <p>Available in pink</p>
+                                <button class="btn" style="background-color:grey; color:black;">Add to Cart</button>
+                                <span>
+                                 <i class="fa regular fa-star"></i>
+                                 <i class="fa regular fa-star"></i>
+                                 
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <img src="https://d30fs77zq6vq2v.cloudfront.net/product/1080x1619/22122022/18969_123_1664347872_6333eee0bf2a6-701687629927.jpg" alt="">
+                            <div class="card-body">
+                                <h6>PKR 4,000</h6>
+                                <p>GulAhmed</p>
+                                <p>Small</p>
+                                <p>Available in black</p>
+                                <button class="btn" style="background-color:grey; color:black;">Add to Cart</button>
+                                <span>
+                                 <i class="fa regular fa-star"></i>
+                                 <i class="fa regular fa-star"></i>
+                                 
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/0089_IMG_0314.jpg?v=1669374327&width=450" alt="">
+                            <div class="card-body">
+                                <h6>PKR 3,500</h6>
+                                <p>Maria.B</p>
+                                <p>Large</p>
+                                <p>Available in Purple</p>
+                                <button class="btn" style="background-color:grey; color:black;">Add to Cart</button>
+                                <span>
+                                 <i class="fa regular fa-star"></i>
+                                 <i class="fa regular fa-star"></i>
+                                
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/0001_image_10adcb8a-500b-4095-adbd-f5f94b2be65e.jpg?v=1670482316&width=450" alt="">
+                            <div class="card-body">
+                                <h6>PKR 2,500</h6>
+                                <p>Sanasafinaz</p>
+                                <p>Medium</p>
+                                <p>Available in Red</p>
+                                <button class="btn" style="background-color:grey; color:black;">Add to Cart</button>
+                                <span>
+                                 <i class="fa regular fa-star"></i>
+                                 <i class="fa regular fa-star"></i>
+                                 
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 mt-2">
+                        <div class="card">
+                            <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/Untitled-1_0019_MHK09076copy.jpg?v=1670502342&width=450" alt="">
+                            <div class="card-body">
+                                <h6>PKR 3,500</h6>
+                                <p>Edernrobe</p>
+                                <p>Medium</p>
+                                <p>Available in Brown</p>
+                                <button class="btn" style="background-color:grey; color:black;">Add to Cart</button>
+                                <span>
+                                 <i class="fa regular fa-star"></i>
+                                 <i class="fa regular fa-star"></i>
+                                 
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 mt-2">
+                        <div class="card">
+                            <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/DSCF3023.jpg?v=1674926916&width=450" alt="">
+                            <div class="card-body">
+                                <h6>PKR 3,500</h6>
+                                <p>Edernrobe</p>
+                                <p>Medium</p>
+                                <p>Available in Blue</p>
+                                <button class="btn" style="background-color:grey; color:black;">Add to Cart</button>
+                                <span>
+                                 <i class="fa regular fa-star"></i>
+                                 <i class="fa regular fa-star"></i>
+                                 
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 mt-2">
+                        <div class="card">
+                            <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/DSCF2387.jpg?v=1674926800&width=450" alt="">
+                            <div class="card-body">
+                                <h6>PKR 3,500</h6>
+                                <p>Edernrobe</p>
+                                <p>Medium</p>
+                                <p>Available in Red</p>
+                                <button class="btn" style="background-color:grey; color:black;">Add to Cart</button>
+                                <span>
+                                 <i class="fa regular fa-star"></i>
+                                 <i class="fa regular fa-star"></i>
+                                 
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 mt-2">
+                        <div class="card">
+                            <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/0049_DSC01280small.jpg?v=1669372712&width=450" alt="">
+                            <div class="card-body">
+                                <h6>PKR 3,500</h6>
+                                <p>Edernrobe</p>
+                                <p>Medium</p>
+                                <p>Available in Black</p>
+                                <button class="btn" style="background-color:grey; color:black;">Add to Cart</button>
+                                <span>
+                                 <i class="fa regular fa-star"></i>
+                                 <i class="fa regular fa-star"></i>
+                                 
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 mt-2">
+                        <div class="card">
+                            <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/DSCF3023.jpg?v=1674926916&width=450" alt="">
+                            <div class="card-body">
+                                <h6>PKR 3,500</h6>
+                                <p>Edernrobe</p>
+                                <p>Medium</p>
+                                <p>Available in Blue</p>
+                                <button class="btn" style="background-color:grey; color:black;">Add to Cart</button>
+                                <span>
+                                 <i class="fa regular fa-star"></i>
+                                 <i class="fa regular fa-star"></i>
+                                 
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 mt-2">
+                        <div class="card">
+                            <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/19_621fc49b-ebca-4159-bd2a-7ae255566c52.jpg?v=1643354990&width=450" alt="">
+                            <div class="card-body">
+                                <h6>PKR 3,500</h6>
+                                <p>Edernrobe</p>
+                                <p>Medium</p>
+                                <p>Available in Pink</p>
+                                <button class="btn" style="background-color:grey; color:black;">Add to Cart</button>
+                                <span>
+                                 <i class="fa regular fa-star"></i>
+                                 <i class="fa regular fa-star"></i>
+                                 
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 mt-2">
+                        <div class="card">
+                            <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/DSCF2524.jpg?v=1674926858&width=450" alt="">
+                            <div class="card-body">
+                                <h6>PKR 3,500</h6>
+                                <p>Edernrobe</p>
+                                <p>Medium</p>
+                                <p>Available in Brown</p>
+                                <button class="btn" style="background-color:grey; color:black;">Add to Cart</button>
+                                <span>
+                                 <i class="fa regular fa-star"></i>
+                                 <i class="fa regular fa-star"></i>
+                                 
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 mt-2">
+                        <div class="card">
+                            <img src="https://cdn.shopify.com/s/files/1/2337/7003/products/DSCF2358.jpg?v=1674926810&width=450" alt="">
+                            <div class="card-body">
+                                <h6>PKR 3,500</h6>
+                                <p>Edernrobe</p>
+                                <p>Medium</p>
+                                <p>Available in Blue</p>
+                                <button class="btn" style="background-color:grey; color:black;">Add to Cart</button>
+                                <span>
+                                 <i class="fa regular fa-star"></i>
+                                 <i class="fa regular fa-star"></i>
+                                 
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+
+     <div class="container-fluid  " style="margin-top: 100px;">
+
+      <footer class="text-white text-center text-lg-start "  style="background-color:black ;">
+        <!-- Grid container -->
+        <div class="container p-4">
+          <!--Grid row-->
+          <div class="row mt-4">
+            <!--Grid column-->
+            <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+              <h5 class="text-uppercase mb-4">About company</h5>
+    
+              <p>
+                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+                voluptatum deleniti atque corrupti.
+              </p>
+    
+              <p>
+                Blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas
+                molestias.
+              </p>
+    
+              <div class="mt-4">
+                <!-- Facebook -->
+                <a type="button" class="btn btn-floating btn-light btn-lg"><i class="fab fa-facebook-f"></i></a>
+                <!-- Dribbble -->
+                <a type="button" class="btn btn-floating btn-light btn-lg"><i class="fab fa-dribbble"></i></a>
+                <!-- Twitter -->
+                <a type="button" class="btn btn-floating btn-light btn-lg"><i class="fab fa-twitter"></i></a>
+                <!-- Google + -->
+                <a type="button" class="btn btn-floating btn-light btn-lg"><i class="fab fa-google-plus-g"></i></a>
+                <!-- Linkedin -->
+              </div>
+            </div>
+            <!--Grid column-->
+    
+            <!--Grid column-->
+            <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+              <h5 class="text-uppercase mb-4 pb-1">Search something</h5>
+    
+              <div class="form-outline form-white mb-4">
+                <input type="text" id="formControlLg" class="form-control form-control-lg" />
+                <label class="form-label" for="formControlLg">Search</label>
+              </div>
+    
+              <ul class="fa-ul" style="margin-left: 1.65em;">
+                <li class="mb-3">
+                  <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">Warsaw, 00-967, Poland</span>
+                </li>
+                <li class="mb-3">
+                  <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2">contact@example.com</span>
+                </li>
+                <li class="mb-3">
+                  <span class="fa-li"><i class="fas fa-phone"></i></span><span class="ms-2">+ 48 234 567 88</span>
+                </li>
+              </ul>
+            </div>
+            <!--Grid column-->
+    
+            <!--Grid column-->
+            <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+              <h5 class="text-uppercase mb-4">Opening hours</h5>
+    
+              <table class="table text-center text-white">
+                <tbody class="fw-normal">
+                  <tr>
+                    <td>Mon - Thu:</td>
+                    <td>8am - 9pm</td>
+                  </tr>
+                  <tr>
+                    <td>Fri - Sat:</td>
+                    <td>8am - 1am</td>
+                  </tr>
+                  <tr>
+                    <td>Sunday:</td>
+                    <td>9am - 10pm</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!--Grid column-->
+          </div>
+          <!--Grid row-->
+        </div>
+        <!-- Grid container -->
+    
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          <a class="text-white" href="www.stylist.com/">www.stylist.com</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
+    
+    </div>
+</body>
+</html>
